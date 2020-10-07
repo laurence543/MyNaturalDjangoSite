@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Результат авторизации{% endblock title %}
+
+{% block content %}
+    <div class="container" style="padding-top: 30px">
+        <h2>Результат авторизации</h2>
+        <hr style="border-color: gray">
+        <h5>
+            <span style="color: {{ color }}">
+                {{ message }}
+            </span>
+            <!--
+            login: {{ login }}<br>
+            pass1: {{ pass1 }}<br>
+            password: {{ password }}<br>
+            -->
+        </h5>
+    </div>
+{% endblock content %}

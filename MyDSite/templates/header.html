@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/">MySite</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/about">Про сайт <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/contacts">Контакты <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/news">Новости <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/events">События <span class="sr-only">(current)</span></a>
+            </li>
+
+
+        </ul>
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="/access/entry"
+                   style="margin-right: 50px; color: khaki">
+                    Привет, {{ user }}!
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            {% if user == 'Гость' %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/access/entry">Вход <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/access/reg">Регистрация <span class="sr-only">(current)</span></a>
+                </li>
+            {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/access/exit_">Выход <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/access/profile">Профиль <span class="sr-only">(current)</span></a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Лента событий{% endblock title %}
+
+{% block content %}
+    <div class="container" style="padding-top: 30px">
+        <h2>Лента событий</h2>
+        <hr style="border-color: gray">
+        {% if user == 'admin' %}
+            <a href="/events/create">Добавить событие</a>
+        {% endif %}
+        {% for ev in events %}
+            <table id="events" border="1" width="100%">
+                <tr>
+                    <td colspan="2">
+                        <h4>{{ ev.title }}</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5>{{ ev.annotation }}</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ ev.publish }}
+                    </td>
+                    <td>
+                        |
+                        <a href="/events/single/{{ ev.id }}">Читать подробности ...</a>
+                        |
+                    </td>
+                </tr>
+            </table>
+        {% endfor %}
+        <div class="pagination">
+            <span class="step-links">
+            {% if posts.has_previous %}
+                <a href="?page=1">&laquo; Первая</a>
+                <a href="?page={{ events.previous_page_number }}">Предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ events.number }} из {{ events.paginator.num_pages }}.
+            </span>
+
+            {% if posts.has_next %}
+                <a href="?page={{ events.next_page_number }}">Следующая</a>
+                <a href="?page={{ events.paginator.num_pages }}">Последняя &raquo;</a>
+            {% endif %}
+            </span>
+        </div>
+    </div>
+    <style>
+        #events {
+            margin-bottom: 15px;
+        }
+        #events td {
+            padding: 5px 15px;
+        }
+    </style>
+{% endblock content %}

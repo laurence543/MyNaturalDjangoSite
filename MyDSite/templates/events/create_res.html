@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Отчет о добавлении события{% endblock title %}
+
+{% block content %}
+    <div class="container" style="padding-top: 30px">
+        <h2>Отчет о добавлении события</h2>
+        <hr style="border-color: gray">
+        <h5>
+            <span style="color: {{ color }}">
+                {{ message }}
+            </span>
+        </h5>
+    </div>
+{% endblock content %}

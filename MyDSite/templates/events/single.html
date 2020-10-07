@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Детали{% endblock title %}
+
+{% block content %}
+    <div class="container" style="padding-top: 30px">
+        <h2>Просмотр события</h2>
+        <hr style="border-color: gray">
+        <h4>{{ event.title }}</h4>
+        <h5>{{ event.content }}</h5>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/JBy70toa68o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/rMs1g1VokUE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div style="clear: left"></div>
+        <h6>
+            {{ event.publish }} / {{ event.status }}
+            {% if user == 'admin' or user == 'moder' %}
+                |
+                <a href="/events/delete/{{ event.id }}">Удалить событие</a>
+                |
+            {% endif %}
+        </h6>
+    </div>
+{% endblock content %}
